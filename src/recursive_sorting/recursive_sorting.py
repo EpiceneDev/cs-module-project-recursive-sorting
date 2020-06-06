@@ -2,8 +2,23 @@
 def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
     merged_arr = [0] * elements # sets space
+    
+   
+    # compare and merge
+    a = 0  # index of arrA (pointer A)
+    b = 0  # index of arrB (pointer B)
+    while a < len(arrA) & b < len(arrB):
+        if arrA[a] > arrB[b]:
+            merged_arr.append(arrB[b])
+            b += 1
+        else:
+            merged_arr.append(arrA[i])
+            a += 1
 
-    # Your code here
+        if arrA[a] <= arrB[b]:
+            merged_arr.append(arrA[i])
+            merged_arr.append(arrB[i])
+            i += 1
 
 
     return merged_arr
@@ -12,10 +27,9 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
     # Your code here
-    merged_array = []
     # divide in half until subarrays len 1
     for i in range(len(arr)):
-
+   
         while len(arr) > 1:
             middle = len(arr)//2
             right = arr[middle:]
