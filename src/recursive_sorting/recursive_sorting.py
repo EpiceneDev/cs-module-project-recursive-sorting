@@ -1,7 +1,7 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
-    merged_arr = [0] * elements
+    merged_arr = [0] * elements # sets space
 
     # Your code here
 
@@ -12,10 +12,27 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
     # Your code here
+    merged_array = []
     # divide in half until subarrays len 1
+    for i in range(len(arr)):
+
+        while len(arr) > 1:
+            middle = len(arr)//2
+            right = arr[middle:]
+            left = arr[:middle]
+            merge_sort(right)
+            merge_sort(left)
+            
+        merge(right, left)
+        # recursively call merge_sort() on LHS
+        # recursively call merge_sort() on RHS
+        # merge sorted pieces
+
+
     # merge sorted lists together in groups of 2
         # compare the first element of each group for smallest
         # place smallest into array first 
+            # recurse through this ^
         # when one left, add to end of new array
 
     return arr
@@ -74,3 +91,5 @@ def quick_sort(arr):  # O(N)
 
     return quick_sort(left) + pivot + quick_sort(right)
     
+def quicksort_in_place(arr):
+    pass
