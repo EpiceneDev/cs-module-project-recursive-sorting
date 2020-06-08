@@ -8,59 +8,67 @@ def merge(arrA, arrB):
     a = 0  # index of arrA (pointer A)
     b = 0  # index of arrB (pointer B)
 
+    # checking for smallest item to be merged first
     # while a and b are not at the end of the array:
     while a < len(arrA) & b < len(arrB):
+        # if item in first array is bigger than item in second, merge second
         if arrA[a] > arrB[b]:
             merged_arr.append(arrB[b])
             b += 1
+            print(arrA, arrB, merged_arr)
+        # if item in second array is bigger than item in first
         else:
             merged_arr.append(arrA[i])
             a += 1
+            print(arrA, arrB, merged_arr)
 
-    # if a reaches the end before b
-    while a < len(arrA):
+    # if a reaches the end before b, append remaining values of b
+    while arrA[a] < len(arrA):
         merged_arr.append(arrA[a])
         a+=1
+        print(arrA, arrB, merged_arr)
 
-    # if b reaches the end before a
-    while b < len(arrB):
+    # if b reaches the end before a, append remaining values of a
+    while arrB[b] < len(arrB):
         merged_arr.append(arrB[b])
         b+=1
+        print(arrA, arrB, merged_arr)
 
     return merged_arr
 
 '''
 from pair prog with Ari:
-def merge(left, right):
-    elements = len(left) + len(right)
-    merged_arr = [] #[0] * elements
-    # Your code here
-    # track index in merged_arr
-    r = 0
-    l = 0
-    # for i in range(elements):
-    #     # compare left-most of each arr
-    while l < len(left) and r < len(right):
-        if left[l] <= right[r]:
-            print(left,  right,  merged_arr, l, r)
-            merged_arr.append(left[l])
-            # iterate to next index in merged_arr
-            l+=1
-        if left[l] > right[r]:
-            print(left,  right,  merged_arr, l, r)
-            merged_arr.append(right[r])
-            r += 1
-        while r < len(right):
-            print(left,  right,  merged_arr, l, r)
-            merged_arr.append(right[r])
-            r+=1
-        while l < len(left):
-            print(left,  right,  merged_arr, l, r)
-            merged_arr.append(left[l])
-            l+=1
-    return merged_arr
-print(merge([2,4, 6, 8], [ 1, 3, 5, 7]))
 '''
+# def merge(left, right):
+#     elements = len(left) + len(right)
+#     merged_arr = [] #[0] * elements
+#     # Your code here
+#     # track index in merged_arr
+#     r = 0
+#     l = 0
+#     # for i in range(elements):
+#     #     # compare left-most of each arr
+#     while l < len(left) and r < len(right):
+#         if left[l] <= right[r]:
+#             print(left,  right,  merged_arr, l, r)
+#             merged_arr.append(left[l])
+#             # iterate to next index in merged_arr
+#             l+=1
+#         if left[l] > right[r]:
+#             print(left,  right,  merged_arr, l, r)
+#             merged_arr.append(right[r])
+#             r += 1
+#         while r < len(right):
+#             print(left,  right,  merged_arr, l, r)
+#             merged_arr.append(right[r])
+#             r+=1
+#         while l < len(left):
+#             print(left,  right,  merged_arr, l, r)
+#             merged_arr.append(left[l])
+#             l+=1
+#     return merged_arr
+# print(merge([2,4, 6, 8], [ 1, 3, 5, 7]))
+
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
