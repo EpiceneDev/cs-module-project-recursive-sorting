@@ -22,48 +22,7 @@
 #     return merged_arr  + arrA[i:] + arrB[j:]
 
 # TO-DO: complete the helper function below to merge 2 sorted arrays
-# def merge(arrA, arrB):
-#     elements = len(arrA) + len(arrB)
-#     merged_arr = [0] * elements # sets space
-    
-   
-#     # compare and merge
-#     a = 0  # index of arrA (pointer A)
-#     b = 0  # index of arrB (pointer B)
 
-#     # checking for smallest item to be merged first
-#     # while a and b are not at the end of the array:
-#     #iterate with elements as range
-#     for i in range(0, len(elements)-1):
-#         # if a < len(arrA) & b < len(arrB):
-
-#         # if item in first array is bigger than item in second, merge second
-#         if arrA[a] < arrB[b]:
-
-#         elif arrA[a] > arrB[b]:
-#             merged_arr.append(arrB[b]) # merge_arr[i] = arrB[b]
-#             b += 1
-#             print(arrA, arrB, merged_arr)
-#             # if item in second array is bigger than item in first
-#         else:
-#             merged_arr.append(arrA[i])
-#             a += 1
-#             print(arrA, arrB, merged_arr)
-
-#     # if a reaches the end before b, append remaining values of b
-#     while arrA[a] < len(arrA):
-#         merged_arr.append(arrA[a]) 
-#         # if a is greater than length
-#         a+=1
-#         print(arrA, arrB, merged_arr)
-
-#     # if b reaches the end before a, append remaining values of a
-#     while arrB[b] < len(arrB):
-#         merged_arr.append(arrB[b])
-#         b+=1
-#         print(arrA, arrB, merged_arr)
-
-#     return merged_arr
 
 '''
 from pair prog with Ari:
@@ -200,6 +159,8 @@ def merge_in_place(arr, start, mid, end):
 
     return arr
 
+# print(merge_in_place([2, 4, 6, 8, 4, 5, 1], 0, 3, 6))
+
 
 def merge_sort_in_place(arr, l, r):
     
@@ -212,8 +173,20 @@ def merge_sort_in_place(arr, l, r):
 # and all the elements at the right of element2 will be shifted right by one position. Increment all the pointers by 1.
 # implement an in-place merge sort algorithm
 # based on C solution at: https://www.geeksforgeeks.org/in-place-merge-sort/
+   
+    # l and r are indexes for the sub-array
+    # if the left is still not the right:
+    if l < r:
 
+        # m is the middle of the array, without remainders
+        m = 1 + (r-1) // 2 
 
+        # sort in place the left then the right side of the array before final merge
+        merge_sort_in_place(arr, l, m)
+        merge_sort_in_place(arr, m + 1, r)
+        
+        # final merge of array with start, mid and end
+        merge(arr, 1, m, r)
 
     return arr
 
